@@ -1,9 +1,8 @@
 import React from "react";
-import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function Index() {
-  return <h2>Home</h2>;
+  return <h2 className="index">Home</h2>;
 }
 
 function About() {
@@ -13,11 +12,11 @@ function About() {
 function App() {
   return (
     <Router>
-      <div className="App">
-        <h1>Hello there</h1>
+      <div className="app">
+        <h1 className="app__title">Hello there</h1>
       </div>
-      <Route path="/" exact component={Index} />
       <Route path="/about/" exact component={About} />
+      <Route path="/" exact component={Index} />
     </Router>
   );
 }
