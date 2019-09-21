@@ -1,9 +1,8 @@
 import React from "react";
-import "./App.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function Index() {
-  return <h2>Home</h2>;
+  return <h2 className="index">Home</h2>;
 }
 
 function About() {
