@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function Index() {
@@ -13,11 +13,11 @@ function About() {
 function App() {
   return (
     <Router>
-      <div className="App">
-        <h1>Hello there</h1>
+      <div className="app">
+        <h1 className="app__title">Hello there</h1>
       </div>
-      <Route path="/" exact component={Index} />
       <Route path="/about/" exact component={About} />
+      <Route path="/" exact component={Index} />
     </Router>
   );
 }
