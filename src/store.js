@@ -1,5 +1,8 @@
 import { createStore, applyMiddleware, compose } from "redux";
 
+import createSagaMiddleware from "redux-saga";
+import rootSaga from "../src/sagas/rootSaga";
+
 import rootReducer from "./reducers";
 
 const composeEnhancers =
@@ -11,13 +14,15 @@ const composeEnhancers =
 
 const initialState = {};
 
-const middleware = [];
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
   initialState,
   // composeEnhancer allows us to use applyMiddleware and the chrom extension tool
-  composeEnhancers(applyMiddleware(...middleware))
+  composeEnhancers(applyMiddleware(sagaMiddleware))
 );
+
+sagaMiddleware.run(rootSaga);
 
 export default store;
