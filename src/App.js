@@ -18,7 +18,7 @@ function App() {
     <Router>
       <NavBar />
       <div className="app">
-        <h1 className="app__title" onClick={() => dispatch({ type: "FETCH_FILM_DATA" })}>
+        <h1 className="app__title" onClick={() => dispatch({ type: "FETCH_FILM_DATA_REQUEST" })}>
           Hello there
         </h1>
       </div>
