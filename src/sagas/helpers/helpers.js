@@ -1,19 +1,28 @@
-import axios from "axios";
+import { call } from "redux-saga/effects";
 import { months } from "../../constants/dateConversion";
+import { getMovieDatabaseGenres } from "../../services/filmServices";
 
-export const getMovieDatabase = () => {
-  return axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_API_KEY}`
-  );
-};
-
-export const getMovieDatabaseGenres = () => {
-  return axios.get(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_TMDB_API_KEY}`
-  );
-};
-
-export const getReadableData = date => {
+export const getReadableDate = date => {
   const dateArray = date.split("-").reverse();
   return `${dateArray[0]} ${months[dateArray[1]]} ${dateArray[2]}`;
 };
+
+export const getReadableGenres = (genres, genreIds) =>
+  genreIds.map(genreId => genres.find(code => code.id === genreId).name);
+
+export function* getFilmDataFormat(films) {
+  const genresList = yield call(getMovieDatabaseGenres);
+
+  return films.map(({ id, original_title, genre_ids, vote_average, overview, release_date }) => {
+    const releaseDate = getReadableDate(release_date);
+    const genres = getReadableGenres(genresList, genre_ids);
+    return {
+      id,
+      title: original_title,
+      genres,
+      reviewRating: vote_average,
+      overview,
+      releaseDate
+    };
+  });
+}

@@ -3,28 +3,14 @@ import { FETCH_FILM_DATA_REQUEST } from "../reducers/filmReducer/constants";
 
 import { fetchFilmDataFailure, fetchFilmDataSuccess } from "../reducers/filmReducer/actions";
 
-import { getMovieDatabase, getReadableData, getMovieDatabaseGenres } from "./helpers/helpers";
+import { getMovieDatabase } from "../services/filmServices";
+import { getFilmDataFormat } from "./helpers/helpers";
 
 function* filmDataRequest() {
   try {
-    const { data } = yield call(getMovieDatabase);
-    const genres = yield call(getMovieDatabaseGenres);
-    console.log(genres.data.genres);
+    const results = yield call(getMovieDatabase);
 
-    const filmData = data.results.map(
-      ({ id, original_title, genre_ids, vote_average, overview, release_date }) => {
-        const releaseDate = getReadableData(release_date);
-
-        return {
-          id,
-          title: original_title,
-          genres: genre_ids,
-          reviewRating: vote_average,
-          overview,
-          releaseDate
-        };
-      }
-    );
+    const filmData = yield call(getFilmDataFormat, results);
 
     yield put(fetchFilmDataSuccess(filmData));
   } catch (error) {

@@ -1,17 +1,14 @@
 import { FETCH_FILM_DATA_FAILURE } from "../filmReducer/constants";
+import { combineReducers } from "redux";
 
-const initialState = {
-  error: null
-};
-
-const errorReducer = (state = initialState, action) => {
+const error = (state = null, action) => {
   switch (action.type) {
     case FETCH_FILM_DATA_FAILURE: {
-      return { ...state, error: action.error };
+      return { error: action.error };
     }
     default:
       return state;
   }
 };
 
-export default errorReducer;
+export default combineReducers({ error });
