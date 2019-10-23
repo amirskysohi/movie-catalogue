@@ -1,25 +1,11 @@
 import { combineReducers } from "redux";
 
-import { FETCH_FILM_DATA_SUCCESS, FETCH_FILM_GENRES_FAILURE } from "./constants";
+import { FETCH_FILM_DATA_SUCCESS } from "./constants";
 
-const filmState = {};
-
-const genreState = {};
-
-const films = (state = filmState, action) => {
+const films = (state = {}, action) => {
   switch (action.type) {
     case FETCH_FILM_DATA_SUCCESS: {
-      return { ...state, films: action.films };
-    }
-    default:
-      return state;
-  }
-};
-
-const genres = (state = genreState, action) => {
-  switch (action.type) {
-    case FETCH_FILM_GENRES_FAILURE: {
-      return { ...state, genres: action.genres };
+      return { films: action.films };
     }
     default:
       return state;
@@ -27,6 +13,5 @@ const genres = (state = genreState, action) => {
 };
 
 export default combineReducers({
-  films,
-  genres
+  films
 });
