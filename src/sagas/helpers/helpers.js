@@ -13,16 +13,19 @@ export const getReadableGenres = (genres, genreIds) =>
 export function* getFilmDataFormat(films) {
   const genresList = yield call(getMovieDatabaseGenres);
 
-  return films.map(({ id, original_title, genre_ids, vote_average, overview, release_date }) => {
-    const releaseDate = getReadableDate(release_date);
-    const genres = getReadableGenres(genresList, genre_ids);
-    return {
-      id,
-      title: original_title,
-      genres,
-      reviewRating: vote_average,
-      overview,
-      releaseDate
-    };
-  });
+  return films.map(
+    ({ id, original_title, genre_ids, vote_average, overview, release_date, poster_path }) => {
+      const releaseDate = getReadableDate(release_date);
+      const genres = getReadableGenres(genresList, genre_ids);
+      return {
+        id,
+        title: original_title,
+        genres,
+        reviewRating: vote_average,
+        overview,
+        releaseDate,
+        poster: poster_path
+      };
+    }
+  );
 }
