@@ -1,7 +1,31 @@
 @import "./App.scss";
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
 @import "./Home.scss";
 @import "./index.scss";
 @import "../components/molecules/NavBar/NavBar.scss";
 @import "../components/atoms/NavBarWidget/NavBarWidget.scss";
 @import "../components/molecules/FilmWidget/FilmBarWidget.scss";
+
+@font-face {
+  font-family: "Source Sans Pro Regular";
+  src: local("Source Sans Pro Regular"), url(../assets/fonts/SourceSansPro-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Source Sans Pro Bold";
+  src: local("Source Sans Pro Bold"), url(../assets/fonts/SourceSansPro-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Source Sans Pro Light";
+  src: local("Source Sans Pro Light"), url(../assets/fonts/SourceSansPro-Light.ttf);
+}
+
+@font-face {
+  font-family: "Source Sans Pro Semi bold";
+  src: local("Source Sans Pro Semi bold"), url(../assets/fonts/SourceSansPro-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Source Sans Pro Light";
+  src: local("Source Sans Pro Light"), url(../assets/fonts/SourceSansPro-Light.ttf);
+}

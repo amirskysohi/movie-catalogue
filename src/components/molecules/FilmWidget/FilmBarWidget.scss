@@ -38,15 +38,22 @@
     font-weight: 600;
   }
 
-  &__date {
+  &__release-date {
     font-size: 16;
     color: rgba(0, 0, 0, 0.6);
   }
 
   &__description {
+    display: block;
+    display: -webkit-box;
     padding: 0 16px;
     font-size: 14px;
     color: rgb(77, 77, 77);
+    overflow: hidden;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__more-info-link-wrapper {

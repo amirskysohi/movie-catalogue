@@ -9,7 +9,7 @@ const film = {
   description:
     "During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.",
   date: "04 October 2019",
-  poster: " http://image.tmdb.org/t/p/w185/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
+  poster: "udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
 };
 
 storiesOf("Film Widget", module)
