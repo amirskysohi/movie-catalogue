@@ -5,7 +5,7 @@ import { fetchFilmDataRequest } from "../../../reducers/filmReducer/actions";
 
 export const Homepage = ({ loading, films, fetchFilmDataRequest }) => {
   useEffect(() => {
-    fetchFilmDataRequest();
+    if (films.length < 1) fetchFilmDataRequest();
   }, []);
 
   if (loading) return <h1>Loading</h1>;

@@ -3,12 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@storybook/addon-actions": "^5.2.1",
-    "@storybook/addon-links": "^5.2.1",
-    "@storybook/addons": "^5.2.1",
-    "@storybook/react": "^5.2.1",
     "axios": "^0.19.0",
-    "eslint": "^6.4.0",
     "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -44,11 +39,18 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
+    "enzyme": "^3.10.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.14.3",
+    "jest": "^24.9.0",
     "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1"
+    "pretty-quick": "^1.11.1",
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-links": "^5.2.1",
+    "@storybook/addons": "^5.2.1",
+    "@storybook/react": "^5.2.1",
+    "eslint": "^6.4.0"
   }
 }
