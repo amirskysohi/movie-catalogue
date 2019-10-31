@@ -1,8 +1,9 @@
 .film-widget {
   display: flex;
   height: 278px;
-  width: 475px;
+  max-width: 475px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 10px 0 10px;
 
   &__description-wrapper {
     display: flex;
@@ -38,15 +39,22 @@
     font-weight: 600;
   }
 
-  &__date {
+  &__release-date {
     font-size: 16;
     color: rgba(0, 0, 0, 0.6);
   }
 
   &__description {
+    display: block;
+    display: -webkit-box;
     padding: 0 16px;
     font-size: 14px;
     color: rgb(77, 77, 77);
+    overflow: hidden;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__more-info-link-wrapper {

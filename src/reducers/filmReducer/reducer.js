@@ -2,10 +2,10 @@ import { combineReducers } from "redux";
 
 import { FETCH_FILM_DATA_SUCCESS } from "./constants";
 
-const films = (state = {}, action) => {
+const films = (state = [], action) => {
   switch (action.type) {
     case FETCH_FILM_DATA_SUCCESS: {
-      return { films: action.films };
+      return action.films;
     }
     default:
       return state;
