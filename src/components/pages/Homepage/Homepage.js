@@ -1,29 +1,29 @@
 import React, { useEffect } from "react";
-import { connect, useDispatch } from "react-redux";
-import { FETCH_FILM_DATA_REQUEST } from "../../../reducers/filmReducer/constants";
+import { connect } from "react-redux";
 import FilmWidget from "../../molecules/FilmWidget/FilmWidget";
+import { fetchFilmDataRequest } from "../../../reducers/filmReducer/actions";
 
-const Homepage = ({ loading, films }) => {
-  const dispatch = useDispatch();
-
+export const Homepage = ({ loading, films, fetchFilmDataRequest }) => {
   useEffect(() => {
-    if (films.length < 1 && !loading) dispatch({ type: FETCH_FILM_DATA_REQUEST });
-  });
+    fetchFilmDataRequest();
+  }, []);
 
   if (loading) return <h1>Loading</h1>;
 
   return (
-    <div>
-      {films.map(({ title, reviewRating, overview, releaseDate, poster, id }) => (
-        <FilmWidget
-          key={id}
-          title={title}
-          rating={reviewRating}
-          description={overview}
-          releaseDate={releaseDate}
-          poster={poster}
-        />
-      ))}
+    <div className="homepage">
+      <div className="homepage__film-widget-wrapper">
+        {films.map(({ title, reviewRating, overview, releaseDate, poster, id }) => (
+          <FilmWidget
+            key={id}
+            title={title}
+            rating={reviewRating}
+            description={overview}
+            releaseDate={releaseDate}
+            poster={poster}
+          />
+        ))}
+      </div>
     </div>
   );
 };
@@ -33,4 +33,11 @@ const mapStateToProps = state => ({
   films: state.filmReducer.films
 });
 
-export default connect(mapStateToProps)(Homepage);
+const mapDispatchToprops = {
+  fetchFilmDataRequest
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToprops
+)(Homepage);

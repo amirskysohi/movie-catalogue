@@ -1,0 +1,12 @@
+.homepage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__film-widget-wrapper {
+    max-width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
